@@ -1,4 +1,6 @@
-fname = '-198000_000000_420000.tif';
+function swap_tif(fname)
+
+%fname = '-198000_000000_420000.tif';
 info = imfinfo(fname);
 num_images = numel(info);
 
@@ -19,4 +21,4 @@ A = flipud(A);
 % save file
 options.comp = 'adobe';
 A = uint16(A);
-saveastiff(A, 'stack_compress.tif', options);
+saveastiff(A,strcat( 'swapped_',fname), options);
